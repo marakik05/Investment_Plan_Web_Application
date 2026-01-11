@@ -1,0 +1,172 @@
+*{
+   box-sizing: border-box;
+}
+
+body {
+  background-color: #4d8f6f;
+  color: white;
+  overflow-x: hidden;
+  width: 100%;
+  height: 100vh;
+}
+#calc-form{
+  width: 100%;
+  height: 100%;
+}
+
+h1{
+    font-weight:bold;
+    text-align: center;
+    font-family:'Times New Roman', Times, serif;
+    
+}
+.container{
+    background-color: #339b69;
+    width: 80%;
+    max-width: 700px;
+    border-radius: 10px;
+    margin: 20px auto;
+    padding: 10px 20px;
+    box-shadow: 0 5px 15px black; 
+   
+    
+     
+}
+fieldset {
+  
+  border: 1.5px solid white;
+  border-radius: 5px;
+  margin: 20px 0;
+  padding: 20px;
+}
+fieldset{
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+input:not([type="radio"]):not([type="checkbox"]), select {
+  width: 40%;
+  max-width: 100%;
+}
+
+
+fieldset legend {
+  max-width: 100%;
+  white-space: normal;
+  word-break: break-word;
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+label {
+  font-size: 1.2rem;
+  display: block;
+  margin: 10px 0;
+}
+
+
+
+
+.readonly {
+    background-color: #b0b0b0;
+}
+
+.clear{
+  cursor: pointer;
+  background-color: rgb(51, 109, 68);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 12px 20px;
+  font-size: 1.1rem;
+  display: inline;
+  margin: 5px 5px 5px 0;
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.clear:hover {
+  background-color: rgb(39, 83, 52);
+}
+
+.clear:active {
+  background-color: rgb(28, 60, 37);
+}
+
+#add-expense:hover {
+  background-color: rgb(14, 128, 221);
+}
+
+#add-expense:active {
+  background-color: rgb(14, 128, 221);
+}
+.remove-expense:hover {
+  background-color:  rgb(134, 17, 17);
+}
+
+.remove-expense:active {
+  background-color: rgb(134, 17, 17);
+}
+
+.form-message {
+  text-align: center;
+  font-size: 1.1rem;
+  margin: 10px 0;
+  padding: 8px;
+  border-radius: 6px;
+  display: none;
+}
+
+.form-message.success {
+  background-color: #2e7d32;
+  color: #fff;
+}
+
+.form-message.error {
+  background-color: #b71c1c;
+  color: #fff;
+}
+
+.add-expense-container{
+  display:flex;
+  justify-content:flex-end;
+  width:95%;
+}
+
+#add-expense {
+ 
+  cursor: pointer;
+  background-color: rgb(51, 109, 68);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 3px 10px;
+  font-size: 1.7rem;
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+
+.remove-expense-container{
+  width:98.5%;
+  display:flex;
+  justify-content:flex-end;
+  margin:0px;
+}
+.remove-expense {
+  
+  
+  cursor: pointer;
+  background-color: rgb(51, 109, 68);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 3px 10px;
+  font-size: 1.4rem;
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+ 
+
+ }
+
+ .hidden {
+  display: none !important;
+}
