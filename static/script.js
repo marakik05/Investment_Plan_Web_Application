@@ -117,9 +117,9 @@ document.addEventListener("input", function (e) {
 
         const result = await response.json();
         
-        document.getElementById("budget").value = result.budget;
-        document.getElementById("idia").value = result.idia;
-        document.getElementById("30_idia").value = result.idia_30;
+        document.getElementById("budget").value = Number(result.budget).toFixed(2);
+        document.getElementById("idia").value = Number(result.idia).toFixed(2);
+        document.getElementById("30_idia").value = Number(result.idia_30).toFixed(2);
 
    if (result.messages && result.messages.length > 0) {
     messageBox.innerHTML = result.messages.join("<br>");

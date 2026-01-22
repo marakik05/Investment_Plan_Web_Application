@@ -56,7 +56,7 @@ def calculate_sum():
             if esdim:
                 if island:
                     if category in [
-                        "Γεωργικοί ελκυστήρες, περονοφόροι φορτωτές & bobcat",
+                        "Γεωργικοί ελκυστήρες, περονοφόροι φορτωτές & bobcat","Παρελκόμενα, αναρτόμενα, συρρόμενα γεωργικών ελκυστήρων",
                         "Λοιπές δαπάνες"
                     ]:
                         rate = 0.6
@@ -64,10 +64,10 @@ def calculate_sum():
                         rate = 0.7
                 else:
                     if category in [
-                        "Γεωργικοί ελκυστήρες, περονοφόροι φορτωτές & bobcat",
+                        "Γεωργικοί ελκυστήρες, περονοφόροι φορτωτές & bobcat","Παρελκόμενα, αναρτόμενα, συρρόμενα γεωργικών ελκυστήρων",
                         "Λοιπές δαπάνες"
                     ]:
-                        rate = 0.5
+                        rate = 0.55
                     elif category in ["ΑΠΕ", "Εξοικονόμηση Ύδατος"]:
                         rate = 0.7
                     else:
@@ -75,7 +75,7 @@ def calculate_sum():
             else:
                 if island:
                     if category in [
-                        "Γεωργικοί ελκυστήρες, περονοφόροι φορτωτές & bobcat",
+                        "Γεωργικοί ελκυστήρες, περονοφόροι φορτωτές & bobcat","Παρελκόμενα, αναρτόμενα, συρρόμενα γεωργικών ελκυστήρων",
                         "Λοιπές δαπάνες"
                     ]:
                         rate = 0.6
@@ -83,7 +83,7 @@ def calculate_sum():
                         rate = 0.7
                 else:
                     if category in [
-                        "Γεωργικοί ελκυστήρες, περονοφόροι φορτωτές & bobcat",
+                        "Γεωργικοί ελκυστήρες, περονοφόροι φορτωτές & bobcat","Παρελκόμενα, αναρτόμενα, συρρόμενα γεωργικών ελκυστήρων",
                         "Λοιπές δαπάνες"
                     ]:
                         rate = 0.5
@@ -93,21 +93,22 @@ def calculate_sum():
                         rate = 0.6 
         else:
             if category in [
-            "Γεωργικοί ελκυστήρες, περονοφόροι φορτωτές & bobcat",
+            "Γεωργικοί ελκυστήρες, περονοφόροι φορτωτές & bobcat","Παρελκόμενα, αναρτόμενα, συρρόμενα γεωργικών ελκυστήρων",
             "Λοιπές δαπάνες"] :
                 rate = 0.6 
             else:
                 rate = 0.7
 
-        idia_values.append(cost * rate)
+        idia_values.append((cost * rate))
                 
 
    
 
-    total_budget = sum(costs)
-    idia=sum(idia_values)     
+    total_budget = round(sum(costs),2)
+    idia_not_round=sum(idia_values)
+    idia=round(idia_not_round,2)    
 
-    idia_30 = idia * 0.3
+    idia_30 = round((idia_not_round * 0.3),2)
    
 
   
