@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+
+<html lang="el" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Investment Plan</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet"/>
+</head>
+<body>
+    <main class="container">
+        
+        <h1 class="title">Προϋπολογισμός επενδυτικού σχεδίου</h1>
+        
+
+        <form id="calc-form">
+            <fieldset>
+                <legend>Στοιχεία υποψήφιου δικαιούχου</legend>
+
+                <label for="name">Ονοματεπώνυμο: </label>
+                <input type="text"
+                       name="name"
+                       id="name" />
+            </label>
+                <label for="young" class="no-block">Nέος Αγρότης: 
+                   <input type="checkbox"
+                       name="young"
+                       id="young"  />
+                </label>
+                <label for="turnover">Κύκλος εργασιών από γεωργική δραστηριότητα : </label>
+                <input type="text"
+                        inputmode="decimal"
+                       name="turnover"
+                       id="turnover" 
+                       required/>
+            </fieldset>
+            <fieldset>
+                <legend>Έδρα επένδυσης</legend>
+                <label for="district">Περιφέρεια: </label>
+                <select id="district" name="district" required>
+                    <option value="">--Επιλέξτε</option>
+                    <option value="Αν.Μακεδονία & Θράκη">Αν.Μακεδονία & Θράκη</option>
+                    <option value="Αττική">Αττική</option>
+                    <option value="Βόρειο Αιγαίο">Βόρειο Αιγαίο</option>
+                    <option value="Δυτική Ελλάδα">Δυτική Ελλάδα</option>
+                    <option value="Δ.Μακεδονία">Δ.Μακεδονία</option>
+                    <option value="Ήπειρος">Ήπειρος</option>
+                    <option value="Θεσσαλία">Θεσσαλία</option>
+                    <option value="Ιόνια Νησιά">Ιόνια Νησιά</option>
+                    <option value="Κ. Μακεδονία">Κ. Μακεδονία</option>
+                    <option value="Κρήτη">Κρήτη</option>
+                    <option value="Νότιο Αιγαίο">Νότιο Αιγαίο</option>
+                    <option value="Πελοπόννησος">Πελοπόννησος</option>
+                    <option value="Στερεά Ελλάδα">Στερεά Ελλάδα</option>
+                </select>
+                <label for="esdim">Περιοχή ΕΣΔΙΜ: 
+                    <input type="checkbox"
+                        name="esdim"
+                        id="esdim" />
+                </label>
+
+            </fieldset>
+            <fieldset class="invest_type-fieldset">
+                <legend>Είδος επένδυσης</legend>
+                <label for="ape" class="no-block"><input type="radio" id="Επενδύσεις ΑΠΕ" name="invest_type" checked /> Επενδύσεις ΑΠΕ</label>
+                
+                <label for="biogas"><input type="radio" id="Επενδύσεις Παραγωγής Βιοαερίου" name="invest_type" /> Επενδύσεις Παραγωγής Βιοαερίου</label>
+                
+                <label for="water"><input type="radio" id="Επενδύσεις Εξοικονόμηση Ύδατος" name="invest_type" /> Επενδύσεις Εξοικονόμηση Ύδατος</label>
+                
+                <label for="plant"><input type="radio" id="Λοιπές επενδύσεις φυτικής παραγωγής, μελισσοκομίας, σηροτροφία" name="invest_type" /> Λοιπές επενδύσεις φυτικής παραγωγής, μελισσοκομίας, σηροτροφίας</label>
+                
+                <label for="animal"><input type="radio" id="Λοιπές επενδύσεις ζωικής παραγωγή" name="invest_type" /> Λοιπές επενδύσεις ζωικής παραγωγής</label>
+                
+            </fieldset>
+            <div id="expenses-container">
+                <fieldset class="expense-fieldset">
+                    <legend>Δαπάνες επενδυτικού σχεδίου</legend>
+                    <label for="category">Κατηγορία Δαπάνης: </label>
+                    <select name="category[]" required >
+                        <option value="">--Επιλέξτε</option>
+                        <option value="ΑΠΕ">ΑΠΕ</option>
+                        <option value="Εξοικονόμηση Ύδατος">Εξοικονόμηση Ύδατος</option>
+                        <option value="Τεχνολογίες αιχμής">Τεχνολογίες αιχμής</option>
+                        <option value="Εξοπλισμός μείωσης λίπανσης">Εξοπλισμός μείωσης λίπανσης</option>
+                        <option value="Εξοπλισμός μείωσης διασποράς φυτοφαρμάκων">Εξοπλισμός μείωσης διασποράς φυτοφαρμάκων</option>
+                        <option value="Κτιριακές εγκαταστάσεις">Κτιριακές εγκαταστάσεις</option>
+                        <option value="Λοιπός κτηνοτροφικός και μελισσοκομικός εξοπλισμός">Λοιπός κτηνοτροφικός και μελισσοκομικός εξοπλισμός</option>
+                        <option value="Εξοπλισμός διαχείρισης - επεξεργασίας υγρών και στερεών κτηνοτροφικών αποβλήτων">Εξοπλισμός διαχείρισης - επεξεργασίας υγρών και στερεών κτηνοτροφικών αποβλήτων</option>
+                        <option value="Γεωργικοί ελκυστήρες, περονοφόροι φορτωτές & bobcat">Γεωργικοί ελκυστήρες, περονοφόροι φορτωτές & bobcat</option>
+                        <option value="Παρελκόμενα, αναρτόμενα, συρρόμενα γεωργικών ελκυστήρων">Παρελκόμενα, αναρτόμενα, συρρόμενα γεωργικών ελκυστήρων</option>
+                        <option value="Λοιπές δαπάνες">Λοιπές δαπάνες</option>
+                    </select>
+                    <label for="description">Περιγραφή Δαπάνης: </label>
+                    <input type="text" name="description[]" />
+                    <label for="cost">Ποσό Δαπάνης: </label>
+                    <input type="text" inputmode="decimal" name="cost[]" required />
+                    
+                    <div class="remove-expense-container">
+                        <button type="button" class="remove-expense hidden">🗑</button>
+                    </div>
+                </fieldset>
+                <div class="add-expense-container">
+                    <button type="button" id="add-expense">+</button>
+                </div>    
+
+
+            </div>
+            
+           
+            <fieldset >
+                <legend>Επιλεξιμότητα επενδυτικού σχεδίου</legend>
+                <label for="budget">Συνολικός προϋπολογισμός</label>
+                <input type="number" id="budget" name="budget" readonly class="readonly" />
+
+                <label for="idia">Ιδία Συμμετοχή</label>
+                <input type="number" id="idia" name="idia" readonly class="readonly" />
+                
+                <label for="idia">30% Ιδίας Συμμετοχής</label>
+                <input type="number" id="30_idia" name="30_idia" readonly class="readonly" />
+                <label>Αποτέλεσμα:</label>
+                <p id="form-message" class="form-message">Αποτέλεσμα:</p>
+
+            </fieldset>
+
+            <button type="submit" id="sum" class="sum clear">Υπολογισμός</button>
+            
+
+            
+
+        </form>
+    </main>
+
+
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+                
+            
+
+
+</body>
+</html>
